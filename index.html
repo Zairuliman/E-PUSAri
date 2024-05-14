@@ -37,9 +37,10 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/KAWASANKUBUR_2.js"></script>
-        <script src="data/KAWASANKUBURBARU_3.js"></script>
-        <script src="data/KUBURBARU_4.js"></script>
+        <script src="data/KAWASANKUBUR_1.js"></script>
+        <script src="data/KAWASANKUBURBARU_2.js"></script>
+        <script src="data/KUBURBARU_3.js"></script>
+        <script src="data/PONDOK_4.js"></script>
         <script src="data/KUBURLAMA_5.js"></script>
         <script>
         var highlightLayer;
@@ -49,7 +50,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:3
-        }).fitBounds([[5.390816644816948,100.56138380957785],[5.391085691345606,100.56190965183]]);
+        }).fitBounds([[5.39078852250604,100.56132475966768],[5.391075024792133,100.56188471860162]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -90,23 +91,10 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_OSMStandard_0');
-        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
-        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            pane: 'pane_OSMStandard_0',
-            opacity: 1.0,
-            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
-            minZoom: 3,
-            maxZoom: 28,
-            minNativeZoom: 0,
-            maxNativeZoom: 19
-        });
-        layer_OSMStandard_0;
-        map.addLayer(layer_OSMStandard_0);
-        map.createPane('pane_GoogleSatellite_1');
-        map.getPane('pane_GoogleSatellite_1').style.zIndex = 401;
-        var layer_GoogleSatellite_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleSatellite_1',
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
             opacity: 1.0,
             attribution: '',
             minZoom: 3,
@@ -114,9 +102,9 @@
             minNativeZoom: 0,
             maxNativeZoom: 19
         });
-        layer_GoogleSatellite_1;
-        map.addLayer(layer_GoogleSatellite_1);
-        function pop_KAWASANKUBUR_2(feature, layer) {
+        layer_GoogleSatellite_0;
+        map.addLayer(layer_GoogleSatellite_0);
+        function pop_KAWASANKUBUR_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -142,34 +130,36 @@
             popup.setContent(updatedContent);
         }
 
-        function style_KAWASANKUBUR_2_0() {
+        function style_KAWASANKUBUR_1_0() {
             return {
-                pane: 'pane_KAWASANKUBUR_2',
+                pane: 'pane_KAWASANKUBUR_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 3.0,
-                fillOpacity: 0,
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(53,206,42,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_KAWASANKUBUR_2');
-        map.getPane('pane_KAWASANKUBUR_2').style.zIndex = 402;
-        map.getPane('pane_KAWASANKUBUR_2').style['mix-blend-mode'] = 'normal';
-        var layer_KAWASANKUBUR_2 = new L.geoJson(json_KAWASANKUBUR_2, {
+        map.createPane('pane_KAWASANKUBUR_1');
+        map.getPane('pane_KAWASANKUBUR_1').style.zIndex = 401;
+        map.getPane('pane_KAWASANKUBUR_1').style['mix-blend-mode'] = 'normal';
+        var layer_KAWASANKUBUR_1 = new L.geoJson(json_KAWASANKUBUR_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_KAWASANKUBUR_2',
-            layerName: 'layer_KAWASANKUBUR_2',
-            pane: 'pane_KAWASANKUBUR_2',
-            onEachFeature: pop_KAWASANKUBUR_2,
-            style: style_KAWASANKUBUR_2_0,
+            dataVar: 'json_KAWASANKUBUR_1',
+            layerName: 'layer_KAWASANKUBUR_1',
+            pane: 'pane_KAWASANKUBUR_1',
+            onEachFeature: pop_KAWASANKUBUR_1,
+            style: style_KAWASANKUBUR_1_0,
         });
-        bounds_group.addLayer(layer_KAWASANKUBUR_2);
-        map.addLayer(layer_KAWASANKUBUR_2);
-        function pop_KAWASANKUBURBARU_3(feature, layer) {
+        bounds_group.addLayer(layer_KAWASANKUBUR_1);
+        map.addLayer(layer_KAWASANKUBUR_1);
+        function pop_KAWASANKUBURBARU_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -195,34 +185,36 @@
             popup.setContent(updatedContent);
         }
 
-        function style_KAWASANKUBURBARU_3_0() {
+        function style_KAWASANKUBURBARU_2_0() {
             return {
-                pane: 'pane_KAWASANKUBURBARU_3',
+                pane: 'pane_KAWASANKUBURBARU_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
-                dashArray: '3.0,6.0',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 3.0,
-                fillOpacity: 0,
+                dashArray: '6.0,3.0',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(180,26,6,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_KAWASANKUBURBARU_3');
-        map.getPane('pane_KAWASANKUBURBARU_3').style.zIndex = 403;
-        map.getPane('pane_KAWASANKUBURBARU_3').style['mix-blend-mode'] = 'normal';
-        var layer_KAWASANKUBURBARU_3 = new L.geoJson(json_KAWASANKUBURBARU_3, {
+        map.createPane('pane_KAWASANKUBURBARU_2');
+        map.getPane('pane_KAWASANKUBURBARU_2').style.zIndex = 402;
+        map.getPane('pane_KAWASANKUBURBARU_2').style['mix-blend-mode'] = 'normal';
+        var layer_KAWASANKUBURBARU_2 = new L.geoJson(json_KAWASANKUBURBARU_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_KAWASANKUBURBARU_3',
-            layerName: 'layer_KAWASANKUBURBARU_3',
-            pane: 'pane_KAWASANKUBURBARU_3',
-            onEachFeature: pop_KAWASANKUBURBARU_3,
-            style: style_KAWASANKUBURBARU_3_0,
+            dataVar: 'json_KAWASANKUBURBARU_2',
+            layerName: 'layer_KAWASANKUBURBARU_2',
+            pane: 'pane_KAWASANKUBURBARU_2',
+            onEachFeature: pop_KAWASANKUBURBARU_2,
+            style: style_KAWASANKUBURBARU_2_0,
         });
-        bounds_group.addLayer(layer_KAWASANKUBURBARU_3);
-        map.addLayer(layer_KAWASANKUBURBARU_3);
-        function pop_KUBURBARU_4(feature, layer) {
+        bounds_group.addLayer(layer_KAWASANKUBURBARU_2);
+        map.addLayer(layer_KAWASANKUBURBARU_2);
+        function pop_KUBURBARU_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -268,10 +260,10 @@
             popup.setContent(updatedContent);
         }
 
-        function style_KUBURBARU_4_0() {
+        function style_KUBURBARU_3_0() {
             return {
-                pane: 'pane_KUBURBARU_4',
-                radius: 4.0,
+                pane: 'pane_KUBURBARU_3',
+                radius: 5.6,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -280,30 +272,87 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(221,29,19,1.0)',
+                fillColor: 'rgba(201,217,61,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_KUBURBARU_4');
-        map.getPane('pane_KUBURBARU_4').style.zIndex = 404;
-        map.getPane('pane_KUBURBARU_4').style['mix-blend-mode'] = 'normal';
-        var layer_KUBURBARU_4 = new L.geoJson(json_KUBURBARU_4, {
+        map.createPane('pane_KUBURBARU_3');
+        map.getPane('pane_KUBURBARU_3').style.zIndex = 403;
+        map.getPane('pane_KUBURBARU_3').style['mix-blend-mode'] = 'normal';
+        var layer_KUBURBARU_3 = new L.geoJson(json_KUBURBARU_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_KUBURBARU_4',
-            layerName: 'layer_KUBURBARU_4',
-            pane: 'pane_KUBURBARU_4',
-            onEachFeature: pop_KUBURBARU_4,
+            dataVar: 'json_KUBURBARU_3',
+            layerName: 'layer_KUBURBARU_3',
+            pane: 'pane_KUBURBARU_3',
+            onEachFeature: pop_KUBURBARU_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_KUBURBARU_4_0(feature));
+                return L.circleMarker(latlng, style_KUBURBARU_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_KUBURBARU_4);
-        map.addLayer(layer_KUBURBARU_4);
+        bounds_group.addLayer(layer_KUBURBARU_3);
+        map.addLayer(layer_KUBURBARU_3);
+        function pop_PONDOK_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PONDOK'] !== null ? autolinker.link(feature.properties['PONDOK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+            var popup = layer.getPopup();
+            var content = popup.getContent();
+            var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
+            popup.setContent(updatedContent);
+        }
+
+        function style_PONDOK_4_0() {
+            return {
+                pane: 'pane_PONDOK_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(164,113,88,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PONDOK_4');
+        map.getPane('pane_PONDOK_4').style.zIndex = 404;
+        map.getPane('pane_PONDOK_4').style['mix-blend-mode'] = 'normal';
+        var layer_PONDOK_4 = new L.geoJson(json_PONDOK_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PONDOK_4',
+            layerName: 'layer_PONDOK_4',
+            pane: 'pane_PONDOK_4',
+            onEachFeature: pop_PONDOK_4,
+            style: style_PONDOK_4_0,
+        });
+        bounds_group.addLayer(layer_PONDOK_4);
+        map.addLayer(layer_PONDOK_4);
         function pop_KUBURLAMA_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -353,7 +402,7 @@
         function style_KUBURLAMA_5_0() {
             return {
                 pane: 'pane_KUBURLAMA_5',
-                radius: 4.0,
+                radius: 5.999999999999999,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -362,7 +411,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(125,139,143,1.0)',
+                fillColor: 'rgba(225,89,137,1.0)',
                 interactive: true,
             }
         }
@@ -399,11 +448,11 @@
         var baseMaps = {};
         var overlaysTree = [
             {label: '<img src="legend/KUBURLAMA_5.png" /> KUBUR LAMA', layer: layer_KUBURLAMA_5},
-            {label: '<img src="legend/KUBURBARU_4.png" /> KUBUR BARU', layer: layer_KUBURBARU_4},
-            {label: '<img src="legend/KAWASANKUBURBARU_3.png" /> KAWASAN KUBUR BARU', layer: layer_KAWASANKUBURBARU_3},
-            {label: '<img src="legend/KAWASANKUBUR_2.png" /> KAWASAN KUBUR', layer: layer_KAWASANKUBUR_2},
-            {label: "Google Satellite", layer: layer_GoogleSatellite_1},
-            {label: "OSM Standard", layer: layer_OSMStandard_0},]
+            {label: '<img src="legend/PONDOK_4.png" /> PONDOK', layer: layer_PONDOK_4},
+            {label: '<img src="legend/KUBURBARU_3.png" /> KUBUR BARU', layer: layer_KUBURBARU_3},
+            {label: '<img src="legend/KAWASANKUBURBARU_2.png" /> KAWASAN KUBUR BARU', layer: layer_KAWASANKUBURBARU_2},
+            {label: '<img src="legend/KAWASANKUBUR_1.png" /> KAWASAN KUBUR', layer: layer_KAWASANKUBUR_1},
+            {label: "Google Satellite", layer: layer_GoogleSatellite_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -416,12 +465,25 @@
         lay.addTo(map);
         setBounds();
         var i = 0;
-        layer_KUBURBARU_4.eachLayer(function(layer) {
+        layer_KUBURBARU_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['NAMA'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['NAMA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_KUBURBARU_4'});
+            layer.bindTooltip((layer.feature.properties['NAMA'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['NAMA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_KUBURBARU_3'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_PONDOK_4.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['PONDOK'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['PONDOK']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_PONDOK_4'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -441,15 +503,15 @@
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_KUBURBARU_4,layer_KUBURLAMA_5]);
+        resetLabels([layer_KAWASANKUBURBARU_2,layer_KUBURBARU_3,layer_PONDOK_4,layer_KUBURLAMA_5]);
         map.on("zoomend", function(){
-            resetLabels([layer_KUBURBARU_4,layer_KUBURLAMA_5]);
+            resetLabels([layer_KAWASANKUBURBARU_2,layer_KUBURBARU_3,layer_PONDOK_4,layer_KUBURLAMA_5]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_KUBURBARU_4,layer_KUBURLAMA_5]);
+            resetLabels([layer_KAWASANKUBURBARU_2,layer_KUBURBARU_3,layer_PONDOK_4,layer_KUBURLAMA_5]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_KUBURBARU_4,layer_KUBURLAMA_5]);
+            resetLabels([layer_KAWASANKUBURBARU_2,layer_KUBURBARU_3,layer_PONDOK_4,layer_KUBURLAMA_5]);
         });
         </script>
     </body>
